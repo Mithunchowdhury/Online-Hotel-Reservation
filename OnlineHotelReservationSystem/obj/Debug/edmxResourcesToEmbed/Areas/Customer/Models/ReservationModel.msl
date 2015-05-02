@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="roModelStoreContainer" CdmEntityContainer="ReservationDbContext">
+    <EntitySetMapping Name="Reservations">
+      <EntityTypeMapping TypeName="roModel.Reservation">
+        <MappingFragment StoreEntitySet="Reservation">
+          <ScalarProperty Name="Outdate" ColumnName="Outdate" />
+          <ScalarProperty Name="Indate" ColumnName="Indate" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phonenumber" ColumnName="Phonenumber" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Standard" ColumnName="Standard" />
+          <ScalarProperty Name="Suit" ColumnName="Suit" />
+          <ScalarProperty Name="Deluxi" ColumnName="Deluxi" />
+          <ScalarProperty Name="Delux" ColumnName="Delux" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,108 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model IPagedList<OnlineHotelReservationSystem.Areas.Customer.Models.Reservation>
+
+
+
+
+<table id="ReseListTable">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Fullname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Phonenumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Indate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Outdate)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.First().Standard)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Suit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Deluxi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Delux)
+            </th>
+         <th>
+                Actions
+            </th>
+        </tr>
+        
+        
+
+        
+
+        @if(Model.Count()==0)
+        {
+           
+            <td colspan="8" style="font-family: Arial;font-size: 25px"> <img src="~/Content/icon/dialog_cancel.png" />Nothing Found  <h1 style="font-family: Arial;font-size: 22px;font-weight: bold;color:red">@TempData["Searchname"]</h1></td>
+        }
+    
+
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fullname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td >
+                    @Html.DisplayFor(modelItem => item.Phonenumber)
+                </td>
+                <td >
+                    @Html.DisplayFor(modelItem => item.Country)
+                </td>
+                <td >
+                    @Html.DisplayFor(modelItem => item.Indate)
+                </td>
+                <td >
+                    @Html.DisplayFor(modelItem => item.Outdate)
+                </td>
+
+                <td >
+                    @Html.DisplayFor(modelItem => item.Standard)
+                </td>
+                <td >
+                    @Html.DisplayFor(modelItem => item.Suit)
+                </td>
+                <td >
+                    @Html.DisplayFor(modelItem => item.Deluxi)
+                </td>
+                <td >
+                    @Html.DisplayFor(modelItem => item.Delux)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditList", new { id=item.Id }, new { @class = "lnkEdit" }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.Id }, new { @class = "lnkDetail" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Id }, new { @class = "lnkDelete"} )
+               
+                
+                </td>
+            </tr>
+        }
+        
+    </table>
+         <div id="" style="position: absolute;left: 40%;top: 70%">
+       @Html.PagedListPager(Model,page=>Url.Action("ReservationInfoList","ReservationDeatils",new{page}))
+
+</div>
+    
+   
+    

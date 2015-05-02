@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="roModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="roModelStoreContainer">
+    <EntitySet Name="Reservation" EntityType="roModel.Store.Reservation" store:Type="Tables" store:Schema="dbo" store:Name="Reservation">
+      <DefiningQuery>SELECT 
+      [Reservation].[Id] AS [Id], 
+      [Reservation].[Fullname] AS [Fullname], 
+      [Reservation].[Email] AS [Email], 
+      [Reservation].[Phonenumber] AS [Phonenumber], 
+      [Reservation].[Country] AS [Country], 
+      [Reservation].[Indate] AS [Indate], 
+      [Reservation].[Outdate] AS [Outdate], 
+      [Reservation].[Standard] AS [Standard], 
+      [Reservation].[Suit] AS [Suit], 
+      [Reservation].[Deluxi] AS [Deluxi], 
+      [Reservation].[Delux] AS [Delux]
+      FROM [dbo].[Reservation] AS [Reservation]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'ro.dbo.Customer' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'ro.dbo.Reservation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Reservation">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Indate" />
+      <PropertyRef Name="Outdate" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Fullname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phonenumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Country" Type="nvarchar" MaxLength="50" />
+    <Property Name="Indate" Type="datetime" Nullable="false" />
+    <Property Name="Outdate" Type="datetime" Nullable="false" />
+    <Property Name="Standard" Type="int" />
+    <Property Name="Suit" Type="int" />
+    <Property Name="Deluxi" Type="int" />
+    <Property Name="Delux" Type="int" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,57 @@
+﻿@model OnlineHotelReservationSystem.Areas.Customer.Models.Customer
+<style>
+     
+</style>
+<link href="~/Content/all.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/all.js"></script>
+@using (Html.BeginForm("SignUp","LoginSignUp",new{area="Customer"},FormMethod.Post)) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Customer</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Username)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Username)
+            @Html.ValidationMessageFor(model => model.Username)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Password)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+           <div class="editor-label">
+            @Html.LabelFor(model => model.ConfirmPassword)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ConfirmPassword)
+            @Html.ValidationMessageFor(model => model.ConfirmPassword)
+        </div>
+        <p>
+            <input type="submit" value="Sign Up" id="btnSignUp" class="m btn" />
+           
+        </p>
+    </fieldset>
+}
+
+
+@using (Html.BeginForm("CancelSignUp", "LoginSignUp", FormMethod.Post))
+{
+    <input type="submit" class="m btn" value="Cancel"  id="cancelSignup" style="position: absolute;left:34%;top:79% ;text-align: center;" />
+}

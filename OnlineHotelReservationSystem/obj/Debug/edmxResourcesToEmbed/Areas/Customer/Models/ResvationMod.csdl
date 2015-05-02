@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Models" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="CustReservationDbContext" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Reservations" EntityType="Models.Reservation" />
+  </EntityContainer>
+  <EntityType Name="Reservation">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Indate" />
+      <PropertyRef Name="Outdate" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Fullname" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Phonenumber" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Country" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Indate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Outdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Standard" Type="Int32" />
+    <Property Name="Suit" Type="Int32" />
+    <Property Name="Deluxi" Type="Int32" />
+    <Property Name="Delux" Type="Int32" />
+  </EntityType>
+</Schema>

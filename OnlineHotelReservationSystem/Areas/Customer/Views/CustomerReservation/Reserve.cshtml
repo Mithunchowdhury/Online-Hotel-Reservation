@@ -1,0 +1,168 @@
+﻿@model OnlineHotelReservationSystem.Areas.Customer.Models.Reservation
+
+
+
+@{
+    ViewBag.Title = "Reserve";
+    Layout = "~/Areas/Customer/Views/CustomerReservation/_Layout.cshtml";
+}
+         
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.8.20.min.js"></script>
+<script src="~/Content/datePicker/jqxcore.js"></script>
+<script src="~/Content/datePicker/jqxcalendar.js"></script>
+<script src="~/Content/datePicker/jqxdatetimeinput.js"></script>
+<script src="~/Content/datePicker/globalize.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/widgets.js"></script>
+<div id="container">
+@using (Html.BeginForm()) {
+ @Html.ValidationSummary(true)
+      <div class="editor-label">
+            @Html.LabelFor(model => model.Fullname)
+        </div>
+        <div class="editor-field">
+      @Html.EditorFor(model => model.Fullname)
+            @Html.ValidationMessageFor(model => model.Fullname)
+        </div>
+
+       <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+
+        <div class="editor-label" id="">
+          
+            @Html.LabelFor(model => model.Phonenumber)
+        </div>
+        <div class="editor-field">
+               @Html.EditorFor(model => model.Phonenumber)
+            @Html.ValidationMessageFor(model => model.Phonenumber)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Country)
+        </div>
+        <div class="editor-field">
+                     @Html.DropDownList("Country",new List<SelectListItem>
+            {
+                new SelectListItem{Text = "Bangladesh",Value = "Bangladesh"},
+                new SelectListItem{Text = "India",Value = "India"},
+                new SelectListItem{Text = "Pakistan",Value = "Pakistan"},
+                 new SelectListItem{Text = "Srilanka",Value = "Srilanka"},
+                new SelectListItem{Text = "China",Value = "China"},
+                 new SelectListItem{Text = "Nepal",Value = "Nepal"},
+                new SelectListItem{Text = "England",Value = "England"},
+                 new SelectListItem{Text = "America",Value = "America"},
+                new SelectListItem{Text = "South Africa",Value = "South Africa"}
+            },"Select Country")
+            @Html.ValidationMessageFor(model => model.Country)
+        </div>
+
+        <div class="editor-label" >
+            @Html.LabelFor(model => model.Indate)
+        </div>
+        <div class="editor-field">
+            <div style='float: left; margin-top: 20px; margin-left: 100px;position: absolute;top:46%;left: -6.5%;width:20%' id='Indate' name="Indate">
+            </div>
+         
+            @Html.ValidationMessageFor(model => model.Indate)
+        </div>
+
+        <div class="editor-label" style="position: absolute;top:54%">
+            @Html.LabelFor(model => model.Outdate)
+        </div>
+        <div class="editor-field">
+               <div style='float: left; margin-top: 20px; margin-left: 100px;position: absolute;top:56%;left: -6.5%' id='Outdate' name="Outdate">
+            </div>
+          
+            @Html.ValidationMessageFor(model => model.Outdate)
+        </div>
+        <div style="position: absolute;top: 64%">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Standard)
+        </div>
+        <div class="editor-field">
+               <select name="Standard">
+                              <option value="">select</option>
+                              @for (int i = 1;
+                                   i <= 15; 
+                                   i++)
+                                   {
+                                       <option value='@i'>@i</option>
+                                   }
+
+                          </select>
+            @Html.ValidationMessageFor(model => model.Standard)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Suit)
+        </div>
+        <div class="editor-field">
+               <select name="Suit">
+                              <option value="">select</option>
+                              @for (int i = 1;
+                                   i <= 20; 
+                                   i++)
+                                   {
+                                       <option value='@i'>@i</option>
+                                   }
+
+                          </select>
+            @Html.ValidationMessageFor(model => model.Suit)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Deluxi)
+        </div>
+        <div class="editor-field">
+                 <select name="Deluxi">
+                              <option value="">select</option>
+                              @for (int i = 1;
+                                   i <= 25; 
+                                   i++)
+                                   {
+                                       <option value='@i'>@i</option>
+                                   }
+
+                          </select>
+            @Html.ValidationMessageFor(model => model.Deluxi)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Delux)
+        </div>
+        <div class="editor-field">
+                <select name="Delux">
+                              <option value="">select</option>
+                              @for (int i = 1;
+                                   i <= 30; 
+                                   i++)
+                                   {
+                                       <option value='@i'>@i</option>
+                                   }
+
+                          </select>
+            @Html.ValidationMessageFor(model => model.Delux)
+        </div>
+
+        <p>
+            <input type="submit" value="Book" style="width: 120px;font-family: Arial;font-size: 21px" class="btn-success btn" id="but"/>
+        </p>
+            </div>
+      
+}
+</div>
+
+<p></p>
+
+    <script type="text/javascript">
+
+        </script>
+
+

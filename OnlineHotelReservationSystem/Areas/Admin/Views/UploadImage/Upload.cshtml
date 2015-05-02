@@ -1,0 +1,85 @@
+﻿
+
+@using PagedList.Mvc;
+@model PagedList.IPagedList<OnlineHotelReservationSystem.Areas.Admin.Models.ImagGallary>
+
+@{
+    
+    ViewBag.Title = "Upload";
+    Layout = "~/Areas/Admin/Views/UploadImage/_Upload.cshtml";
+}
+<style>
+ 
+</style>
+
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Content/source/jquery.fancybox.js"></script>
+<script src="~/Content/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+<script src="~/Scripts/dialog.js"></script>
+<script src="~/Scripts/image.js"></script>
+
+
+@using(Html.BeginForm("Upload","UploadImage",FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div id="" style="border: 10px solid green;background: white;width:30%;height: 170px;position: absolute;left: 29%;top: 10%">
+    Select Image<input type="file" name="file"/><br/><br/>
+   Image Description<input type="text" name="Description"/><br/><br/>
+    <input type="submit" value="Upload" class=" m" id="uploadButton"/>
+</div>
+
+<table style="position: absolute;left: 5%;font-size: 20px;top: 32%;background: white;width: 90%;height: 22%;font-family: Arial">
+    <tr>
+         <th>
+            @Html.DisplayNameFor(model => model.First().Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Description)
+        </th>
+     <th>Actions</th>
+    </tr>
+
+@foreach (var item in (IEnumerable<OnlineHotelReservationSystem.Areas.Admin.Models.ImagGallary>)ViewData["users"]) {
+    
+ 
+    <tr>
+        <td>
+      <a href="data:image/jpg;base64,@Convert.ToBase64String(item.Image)" class="fancybox-effects-d" title="@item.Description">          <img src="data:image/jpg;base64,@Convert.ToBase64String(item.Image)" width="80px"/>    </a>  
+        </td>
+          <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+         
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID }, new { @class = "lnkDelete" })
+        </td>
+    </tr>
+}
+
+</table>
+     <div id="" style="position: absolute;left: 40%;top: 75%">
+                @Html.PagedListPager(Model, page => Url.Action("Upload", "UploadImage", new { page, @class = "hi" }))
+
+        </div>
+    
+}
+
+
+<div id="dialog-confirm" style="display: none">
+<p style="font-family: Arial;font-size: 19px">
+<span  style="float: left; margin: 0 7px 20px 0;"></span>
+    <img src="~/Content/icon/warning(1).png" />
+    Are you sure to delete?
+</p>
+</div>
+ 
+<div id="dialog-edit" style="display: none">
+</div>
+<div id="dialog-detail" style="display: none">
+</div>
+
+
+
+    
+    
